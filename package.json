@@ -25,5 +25,6 @@
   "bugs": {
     "url": "https://github.com/taylorceneviva/teamGenerator_CLI/issues"
   },
-  "homepage": "https://github.com/taylorceneviva/teamGenerator_CLI#readme"
+  "homepage": "https://github.com/taylorceneviva/teamGenerator_CLI#readme",
+  "keywords": []
 }
