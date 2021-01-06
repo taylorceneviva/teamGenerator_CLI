@@ -8,11 +8,78 @@ const fs = require("fs");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const render = require("./lib/htmlRenderer");
+const render = require("./lib/htmlRender");
 
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+
+async function promtEmployee() {
+const {name, id, email, role} = await inquirer.prompt([
+
+            {
+                type: 'input',
+                message: 'What is the employee name?',
+                name: 'name',
+            },
+            {
+                type: 'input',
+                message: 'What is the employee ID?',
+                name: 'id',
+            },
+            {
+                type: 'input',
+                message: 'What is the employee email?',
+                name: 'email',
+            },
+            {
+                type: 'list',
+                message: 'Choose the employee role.',
+                name: 'role',
+                choices: ['Intern', 'Engineer', 'Manager' ]
+                }
+        ]);
+
+switch (role) {
+    case 'Intern':
+        inquirer.prompt([
+        {
+            type: 'input',
+            message: 'What is the interns school?',
+            name: 'school',
+        },
+    
+    ])}
+
+switch (role) {
+    case 'Engineer':
+        inquirer.prompt([
+        {
+            type: 'input',
+            message: 'What is the GitHub username?',
+            name: 'GitHubUser',
+        }
+
+    ])}
+
+switch (role) {
+    case 'Manager':
+        inquirer.prompt([
+        {
+            type: 'input',
+            message: 'What is the office number?',
+            name: 'officeNumber',
+        }
+
+    ])}
+
+};
+
+
+promtEmployee();
+
+
+
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
@@ -33,18 +100,3 @@ const render = require("./lib/htmlRenderer");
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work! ```
-
-
-// generate HTML file
-promptUser()
-  .then((response) => {
-      writeFileAsync('index.html', generateHTML(response));
-  })
-
-  .then(() => {
-   console.log('created HTML');
-})
-
-  .catch((error) => {
-    console.error(error);
-  })
